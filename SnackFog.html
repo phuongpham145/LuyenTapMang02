@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cat&rat</title>
+</head>
+<body>
+<script>
+    function Frog(name,weight,speed,status) {
+        this.name = name;
+        this.weight = weight;
+        this.speed = speed;
+        this.status = status;
+        this.getStatus = function () {
+            return this.status;
+        }
+        this.setStatus = function (newStatus) {
+            this.status = newStatus;
+        }
+        this.sound = function (stringFrog) {
+            if(this.status) {
+                console.log(stringFrog);
+            }
+        }
+    }
+    let nam=new Frog('nam',69,5,true);
+    let quoc= new Frog('quoc',96,10,false);
+    let son = new Frog('son',70,15,true);
+    function Snack(name,weight,speed) {
+        this.name = name;
+        this.weight = weight;
+        this.speed = speed;
+        this.sound = function (stringSnack) {
+            console.log(stringSnack);
+        }
+        this.catch = function (frog) {
+            if(this.speed>frog.speed)
+            {
+                console.log('Snack' + this.name + ' catched frog ' + frog.name);
+            }
+            else {
+                console.log('Snack' + this.name + " didn't catch frog "  + frog.name);
+            }
+        }
+        this.eat = function (frog) {
+            if(frog.getStatus())
+            {
+                this.weight += frog.weight;
+                frog.setStatus(false);
+            }
+            else
+            {
+                console.log('this frog was eaten by snack');
+            }
+        }
+    }
+    let ha = new Snack(' ha',60,70);
+</script>
+</body>
+</html>

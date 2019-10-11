@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Rat(name, weight, speed, status) {
+        this.name = name ;
+        this.weight = weight ;
+        this.speed = speed;
+        this.status = status;
+        this.sound = function (stringMouse) {
+            if(this.status){
+                console.log(stringMouse)
+            }
+
+        }
+
+    }
+    let long = new Mouse('long',69,5,true);
+    let dung = new Mouse('dung',60,3,false);
+    let dong = new Mouse('dong',190,4,true);
+    function Cat(name, weight, speed) {
+        this.name = name ;
+        this.weight = weight ;
+        this.speed = speed;
+        this.sound = function (stringCat) {
+            if(this.status){
+                console.log(stringCat)
+            }
+          this.catch = function (mouse) {
+              if(this.speed>mouse.speed){
+                  console.log("Meo "+ this.name + " da bat duoc chuot "+ mouse.name)
+              }
+              else  console.log("Meo "+ this.name + " khong bat duoc chuot "+ mouse.name)
+          }
+        }
+        this.eat = function (mouse) {
+            if (mouse.status){
+                this.weight += mouse.weight ;
+                mouse.status = false
+            }
+
+        }
+
+    }
+    let minh = new Cat('Minh',200,true)
+
+</script>
+</body>
+</html>
